@@ -74,7 +74,7 @@ Note:
 - Both `DataReader` and `DataWriter` implement `AutoCloseable` interface.
   They must close the resources that are passed in constructor.
 
-![](https://raw.githubusercontent.com/epam-java-cre/exercise-specification-images/main/data-format-person/persistence.png)
+![](https://gitlab.com/autocode-assessment/exercise_fundamentals/-/raw/main/data-format-person/persistence.png)
 
 ## Application
 
@@ -86,8 +86,7 @@ In the root package (`com.epam.training.person`), you can find the following typ
 - `PersonSubscriberTransformer`
 - `PhoneParser`
 
-![](https://raw.githubusercontent.com/epam-java-cre/exercise-specification-images/main/data-format-person/application.png)
-
+![](https://gitlab.com/autocode-assessment/exercise_fundamentals/-/raw/main/data-format-person/application.png)
 
 ## XML
 
