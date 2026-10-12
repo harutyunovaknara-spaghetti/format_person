@@ -14,6 +14,12 @@ public class PhoneParser {
 
         boolean areDigits = false;
 
+        boolean containsOnlySymbols = value.chars().mapToObj(ch->(char) ch).toList().stream().anyMatch(c-> !Character.isDigit(c));
+        if(value.length() < 10 || value.length() > 12)
+            throw new IllegalArgumentException();
+        if(containsOnlySymbols)
+            throw new IllegalArgumentException();
+
         if (value.length() == 12) {
             String[] parts = value.split("-");
             List<Integer> date = new ArrayList<>();
@@ -31,15 +37,11 @@ public class PhoneParser {
         if (value.length() == 10) {
             areDigits = value.chars().allMatch(Character::isDigit);
             if (areDigits) {
-                area = value.substring(0, 2);
-                region = value.substring(2, 5);
+                area = value.substring(0, 3);
+                region = value.substring(3, 6);
                 local = value.substring(6, 10);
             }
         }
-
-        if (!areDigits)
-            throw new IllegalArgumentException();
-
 
         return new Phone(area, region, local);
     }
