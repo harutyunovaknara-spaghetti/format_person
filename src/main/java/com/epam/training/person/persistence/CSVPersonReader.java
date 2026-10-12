@@ -86,7 +86,12 @@ public class CSVPersonReader implements DataReader<List<Person>> {
     }
 
     private Phone readPhone(String value) {
-        return PhoneParser.parse(value);
+        try{
+            return PhoneParser.parse(value);
+
+        }catch (IllegalArgumentException e){
+            return null;
+        }
 
     }
 
