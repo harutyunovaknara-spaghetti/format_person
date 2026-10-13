@@ -38,12 +38,8 @@ public class CSVPersonReader implements DataReader<List<Person>> {
                 Location placeOfBirth = new Location(csvData.get(3), csvData.get(4), csvData.get(5), csvData.get(6));
                 Gender gender = readGender(csvData.get(7));
 
-                List<Phone> phones = new ArrayList<>();
-                //readPhone(csvData.get(8) , csvData.get(9) ,csvData.get(10));
+                List<Phone> phones = readPhone(csvData.get(8),csvData.get(9),csvData.get(10));
 
-                phones.add(readPhone(csvData.get(8)));
-                phones.add(readPhone(csvData.get(9)));
-                phones.add(readPhone(csvData.get(10)));
 
 
                 Person person = new Person(
@@ -85,9 +81,9 @@ public class CSVPersonReader implements DataReader<List<Person>> {
         return LocalDate.of(stringIntoInteger.get(0), stringIntoInteger.get(1), stringIntoInteger.get(2));
     }
 
-    private Phone readPhone(String value) {
-
-            return PhoneParser.parse(value);
+    private List<Phone> readPhone(String value1, String value2, String value3) {
+            List<String> values = Arrays.asList(value1, value2,value3);
+            return values.stream().map(m-> PhoneParser.parse(m)).toList();
 
 
 
