@@ -6,7 +6,6 @@ import java.util.Objects;
 @XmlRootElement(name = "subscriber")
 @XmlType(propOrder = {"phone","clientName"})
 @XmlAccessorType(XmlAccessType.FIELD)
-
 public class Subscriber {
     @XmlElement(name = "client-name")
     private String clientName;
