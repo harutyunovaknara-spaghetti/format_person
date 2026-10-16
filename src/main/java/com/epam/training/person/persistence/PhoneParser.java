@@ -37,12 +37,9 @@ public class PhoneParser {
 
             return new Phone(area, region, local);
         }
-        //dash, onlydash, length with dash > 12
-        boolean onlyDashFormat = value.chars().mapToObj(ch-> (char) ch).anyMatch(character-> character == '-') ;
 
         if(value.equals("-"))
             return null;
-
 
         throw new IllegalArgumentException();
     }
